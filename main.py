@@ -1,51 +1,37 @@
 import random
 
-'''
-stone=-1
-paper=1
-scizor=0
+"""
+Stone = -1
+Paper = 1
+Scissor = 0
+"""
 
-'''
+choices = {"s": -1, "p": 1, "c": 0}
+reverse_choices = {-1: "Stone", 1: "Paper", 0: "Scissor"}
 
-computer_choice= random.choice([-1,1,0])
-You=input("Enter your choice : ")
-You_dict={"s":-1,"p":1,"c":0}
-reverse_dict={-1:"Stone",1:"Paper",0:"cizor"}
+# Computer choice
+computer_choice = random.choice([-1, 1, 0])
 
-Your_choice=(You_dict[You])
+# User input with validation
+while True:
+    user_input = input("Enter your choice (s = Stone, p = Paper, c = Scissor): ").strip().lower()
+    if user_input in choices:
+        break
+    print("Invalid input! Please enter s, p, or c.")
 
-print(f" You Choose {reverse_dict[Your_choice]}\n Computer Choose {reverse_dict[computer_choice]}")
+user_choice = choices[user_input]
 
+print(f"\nYou chose: {reverse_choices[user_choice]}")
+print(f"Computer chose: {reverse_choices[computer_choice]}")
 
-if(computer_choice==Your_choice):
-    print("It's an Draw ")
-
+# Game logic
+if computer_choice == user_choice:
+    print("It's a Draw!")
+elif (
+    (user_choice == -1 and computer_choice == 0) or
+    (user_choice == 1 and computer_choice == -1) or
+    (user_choice == 0 and computer_choice == 1)
+):
+    print("You Win!")
 else:
-
-    if(computer_choice==-1 and Your_choice==1):
-        print("You win!")
-    elif(computer_choice==-1 and Your_choice==0):
-        print("You Lose!")
-    elif(computer_choice==1 and Your_choice==0):
-        print("You win!")
-    elif(computer_choice==1 and Your_choice==-1):
-        print("You Lose!")
-    elif(computer_choice==0 and Your_choice==-1):
-        print("You win!")
-    elif(computer_choice==0 and Your_choice==1):
-        print("You Lose!")
-    else:
-        print("Something went wrong !")    
-         
-    
-
-
-
-
-
-
-
-
-
-
-
+    print("You Lose!")
