@@ -6,7 +6,7 @@ Paper = 1
 Scissor = 0
 """
 
-choices = {"s": -1, "p": 1, "c": 0}
+choices = {"s": -1, "p": 1, "c": 0
 reverse_choices = {-1: "Stone", 1: "Paper", 0: "Scissor"}
 
 # Computer choice
